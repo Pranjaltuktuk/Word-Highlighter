@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Highlighter</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<p id="highlightedText">This is an example sentence. Highlight the word in this text. Another word.</p>
+
+<script>
+    // Function to highlight all occurrences of a word
+    function highlightWord(word) {
+        var textElement = document.getElementById('highlightedText');
+        var textContent = textElement.innerHTML;
+        
+        // Use a regular expression to replace all occurrences with the highlighted version
+        var highlightedText = textContent.replace(new RegExp(word, 'gi'), function(match) {
+            return '<span class="highlight">' + match + '</span>';
+        });
+
+        // Update the content of the element
+        textElement.innerHTML = highlightedText;
+    }
+
+    // Example word to highlight
+    var wordToHighlight = 'word';
+
+    // Call the highlightWord function
+    highlightWord(wordToHighlight);
+</script>
+
+</body>
+</html>
